@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartMoney - Track Your Wealth</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Main Page -->
+  <div class="main-page">
+    <h1>Welcome to SmartMoney</h1>
+    <p>Your personal finance tracker.</p>
+    <button id="loginBtn" onclick="showLoginForm()">Login</button>
+    <button id="registerBtn" onclick="showRegisterForm()">Register</button>
+  </div>
+
+  <!-- Registration Section -->
+  <div class="auth-container hidden" id="authContainer">
+    <div class="auth-box">
+      <h2 id="authTitle">Register to SmartMoney</h2>
+      <form id="registrationForm">
+        <input type="text" id="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" placeholder="Last Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <select id="gender" required>
+          <option value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="contact" placeholder="Contact Number" required />
+        <select id="country" required>
+          <option value="">Select Country</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+          <option value="UK">UK</option>
+          <option value="Australia">Australia</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+          <option value="Japan">Japan</option>
+        </select>
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Section -->
+  <div class="auth-container hidden" id="loginContainer">
+    <div class="auth-box">
+      <h2 id="authTitle">Login to SmartMoney</h2>
+      <form id="authForm">
+        <input type="text" id="loginUsername" placeholder="Username" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div class="main-container hidden" id="mainContainer">
+    <header>
+      <h1>SmartMoney 💸</h1>
+      <p id="welcomeUser"></p>
+      <p class="quote" id="quoteText">"Manage your money before it manages you."</p>
+    </header>
+
+    <div class="balance-card">
+      <h2 id="balance">Balance: ₹0.00</h2>
+    </div>
+
+    <section class="add-transaction">
+      <h3>Add Transaction</h3>
+      <form id="transactionForm">
+        <input type="text" id="description" placeholder="Description" required />
+        <input type="number" id="amount" placeholder="Amount (+ for income, - for expense)" required />
+        <select id="category">
+          <option value="salary">💼 Salary</option>
+          <option value="food">🍔 Food</option>
+          <option value="rent">🏠 Rent</option>
+          <option value="entertainment">🎮 Entertainment</option>
+          <option value="mobileRecharge">📱 Mobile Recharge</option>
+          <option value="travel">✈️ Travel</option>
+          <option value="shopping">👗 Shopping</option>
+          <option value="electronics">💻 Electronics</option>
+          <option value="healthcare">🩺 Healthcare</option>
+          <option value="transport">🚖 Transport</option>
+          <option value="bills">🏷️ Bills</option>
+          <option value="gifts">🎁 Gifts</option>
+          <option value="other">📝 Other</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="transaction-history">
+      <h3>Transaction History</h3>
+      <ul id="transactions"></ul>
+    </section>
+
+    <canvas id="expenseChart"></canvas>
+
+    <button id="logoutButton" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
